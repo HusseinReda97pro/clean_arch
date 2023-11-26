@@ -1,6 +1,17 @@
+import 'package:clean_arch/weather/data/dataSource/remote_dataSource.dart';
+import 'package:clean_arch/weather/data/repository/weather_repository.dart';
+import 'package:clean_arch/weather/domain/entities/weather.dart';
+import 'package:clean_arch/weather/domain/useCases/get_weather_country_name.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  Weather weather = await GetWeatherByCountryName(
+    WeatherRepository(
+      remoteDataSource: RemoteDataSource(),
+    ),
+  ).execute("egypt");
+
+  print(weather);
   runApp(const MyApp());
 }
 
