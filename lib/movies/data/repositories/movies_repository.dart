@@ -5,9 +5,9 @@ import 'package:clean_arch/movies/domain/entities/movie.dart';
 import 'package:clean_arch/movies/domain/repositories/base_movies_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class MovieRepository extends BaseMoviesRepository {
+class MoviesRepository extends BaseMoviesRepository {
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
-  MovieRepository(this.baseMovieRemoteDataSource);
+  MoviesRepository(this.baseMovieRemoteDataSource);
 
   @override
   Future<Either<Failure, List<Movie>>> getNowPlaying() async {
