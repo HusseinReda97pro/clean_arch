@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:clean_arch/core/uitls/enums.dart';
 import 'package:clean_arch/movies/presentation/controller/movies_bloc.dart';
 import 'package:clean_arch/movies/presentation/controller/movies_states.dart';
+import 'package:clean_arch/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +41,15 @@ class NowPlayingComponent extends StatelessWidget {
                     return GestureDetector(
                       key: const Key('openMovieMinimalDetail'),
                       onTap: () {
-                        /// TODO : NAVIGATE TO MOVIE DETAILS
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                MovieDetailScreen(
+                              id: item.id,
+                            ),
+                          ),
+                        );
                       },
                       child: Stack(
                         children: [
